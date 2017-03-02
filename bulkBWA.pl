@@ -26,7 +26,7 @@ for (my $i = 0; $i < scalar @fileList; $i++) {
   $read1 =~ /(OB\d\d\d\d)/;
   $i += 1;
   $read2 = $fileList[$i];
-  system("bwa mem -R '@RG\tID:foo\tSM:bar\tLB:library1' $refGenome $read1 $read2 > $1.sam")
+  system("bwa mem -R '\@RG\\tID:foo\\tSM:bar\\tLB:library1' $refGenome $read1 $read2 > $1.sam")
   system("samtools view -Sb $1.sam > $1.bam");
   `rm $1.sam`;
 }
