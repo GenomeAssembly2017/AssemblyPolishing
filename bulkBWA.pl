@@ -19,6 +19,8 @@ my $refGenome = $ARGV[2];
 my ($read1, $read2);
 chomp(my @fileList = `ls $inDir | awk '{if(\$0 !~ /README/ && \$0 !~ /kmer/ && \$0 !~ /trim_galore/){print;}}'`);
 
+`bwa index $refGenome`;
+
 for (my $i = 0; $i < scalar @fileList; $i++) {
   $read1 = $fileList[$i];
   $read1 =~ /(OB\d\d\d\d)/;
